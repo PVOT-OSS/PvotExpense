@@ -5,6 +5,6 @@
 -->
 <resources>
     <!-- The launcher icon's own tile, so the app opens looking as it does on the home screen. -->
-    <color name="splash_background">#FF0A0A0B</color>
-    <color name="splash_icon_background">#FF0A0A0B</color>
+    <color name="splash_background">#FFFFFFFF</color>
+    <color name="splash_icon_background">#FFFFFFFF</color>
 </resources>
