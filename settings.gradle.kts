@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -14,17 +15,22 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
-}
+
+plugins { id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0" }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+        maven("https://pvot-oss.github.io/PvotLib/maven") {
+            content { includeGroup("com.prauga.pvot") }
+        }
     }
 }
 
 rootProject.name = "Ledger"
+
 include(":app")
- 
+
+providers.gradleProperty("pvotLibDir").orNull?.let { includeBuild(it) }
