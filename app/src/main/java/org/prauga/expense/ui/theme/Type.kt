@@ -1,4 +1,4 @@
-package org.prauga.expensemanager.ui.theme
+package org.prauga.expense.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

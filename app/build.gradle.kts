@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "org.prauga.expensemanager"
+    namespace = "org.prauga.expense"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "org.prauga.expensemanager"
+        applicationId = "org.prauga.expense"
         minSdk = 29
         targetSdk = 37
         versionCode = 1

@@ -1,4 +1,4 @@
-package org.prauga.expensemanager
+package org.prauga.expense
 
 import org.junit.Test
 
