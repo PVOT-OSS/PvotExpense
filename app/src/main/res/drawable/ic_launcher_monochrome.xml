@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Saalim Quadri <danascape@gmail.com>
+     SPDX-License-Identifier: Apache-2.0
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:scaleX="0.83333"
+        android:scaleY="0.83333"
+        android:translateX="52.3333"
+        android:translateY="55.4479">
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:pathData="M-13.076,-19.386L8.71,-22.448A4,4 0 0,1 13.228,-19.044L14.48,-10.131A4,4 0 0,1 11.076,-5.614L-10.71,-2.552A4,4 0 0,1 -15.228,-5.956L-16.48,-14.869A4,4 0 0,1 -13.076,-19.386Z" />
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:fillType="evenOdd"
+            android:pathData="M-14,-11L14,-11A8,8 0 0,1 22,-3L22,11A8,8 0 0,1 14,19L-14,19A8,8 0 0,1 -22,11L-22,-3A8,8 0 0,1 -14,-11ZM10,0L14,0A5,5 0 0,1 19,5A5,5 0 0,1 14,10L10,10A5,5 0 0,1 5,5A5,5 0 0,1 10,0Z" />
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:pathData="M9.6,5a2.4,2.4 0 1,0 4.8,0a2.4,2.4 0 1,0 -4.8,0Z" />
+    </group>
+</vector>
