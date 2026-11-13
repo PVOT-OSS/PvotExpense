@@ -76,7 +76,9 @@ object Notifications {
                 .setAutoCancel(true)
                 .setGroup(INBOX)
                 .build()
-        runCatching { NotificationManagerCompat.from(context).notify(tx.id.hashCode(), n) }
+        try {
+            NotificationManagerCompat.from(context).notify(tx.id.hashCode(), n)
+        } catch (_: SecurityException) {}
     }
 
     fun billDue(context: Context, schedule: Schedule, due: LocalDate) {
@@ -91,6 +93,8 @@ object Notifications {
                 .setContentIntent(open(context, MainActivity.ACTION_PLAN))
                 .setAutoCancel(true)
                 .build()
-        runCatching { NotificationManagerCompat.from(context).notify(schedule.id.hashCode(), n) }
+        try {
+            NotificationManagerCompat.from(context).notify(schedule.id.hashCode(), n)
+        } catch (_: SecurityException) {}
     }
 }

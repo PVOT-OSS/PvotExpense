@@ -3,6 +3,7 @@
 
 package org.prauga.expense.tile
 
+import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.Intent
 import android.os.Build
@@ -10,6 +11,7 @@ import android.service.quicksettings.TileService
 import org.prauga.expense.MainActivity
 
 class QuickAddTileService : TileService() {
+    @SuppressLint("StartActivityAndCollapseDeprecated")
     override fun onClick() {
         val intent =
             Intent(this, MainActivity::class.java)

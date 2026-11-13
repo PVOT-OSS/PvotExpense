@@ -248,13 +248,3 @@ fun BudgetDialog(dialogs: PlanDialogs, state: AppState, vm: AppViewModel) {
         onDismiss = { picking = false },
     )
 }
-
-@Composable
-fun FrequencyLabel(f: Frequency): String =
-    stringResource(
-        when (f) {
-            Frequency.WEEKLY -> R.string.weekly
-            Frequency.MONTHLY -> R.string.monthly
-            Frequency.YEARLY -> R.string.yearly
-        }
-    )

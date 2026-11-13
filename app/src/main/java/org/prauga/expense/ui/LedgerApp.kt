@@ -3,6 +3,7 @@
 
 package org.prauga.expense.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,7 +29,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -110,7 +111,7 @@ fun LedgerApp(vm: AppViewModel, launch: StateFlow<Launch>, onLaunchHandled: () -
     var insights by remember { mutableStateOf(InsightsState()) }
     val plan = remember { PlanDialogs() }
     val snackbar = remember { SnackbarHostState() }
-    val context = LocalContext.current
+    val resources = LocalResources.current
     val pendingLaunch by launch.collectAsStateWithLifecycle()
 
     LaunchedEffect(pendingLaunch) {
@@ -124,11 +125,13 @@ fun LedgerApp(vm: AppViewModel, launch: StateFlow<Launch>, onLaunchHandled: () -
     }
     LaunchedEffect(Unit) {
         vm.messages.collect { m ->
-            val text = context.getString(m.text, *m.args.toTypedArray())
+            val text =
+                m.count?.let { resources.getQuantityString(m.text, it, *m.args.toTypedArray()) }
+                    ?: resources.getString(m.text, *m.args.toTypedArray())
             val result =
                 snackbar.showSnackbar(
                     text,
-                    actionLabel = m.undo?.let { context.getString(R.string.undo) },
+                    actionLabel = m.undo?.let { resources.getString(R.string.undo) },
                     duration = SnackbarDuration.Short,
                 )
             if (result == SnackbarResult.ActionPerformed) m.undo?.invoke()
@@ -261,7 +264,10 @@ private fun Onboarding(state: AppState, vm: AppViewModel) {
     var currency by rememberSaveable { mutableStateOf(state.settings.baseCurrency) }
     var picking by remember { mutableStateOf(false) }
     Box(
-        Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing).padding(PvotSpacing.L),
+        Modifier.fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
+            .windowInsetsPadding(WindowInsets.safeDrawing)
+            .padding(PvotSpacing.L),
         contentAlignment = Alignment.Center,
     ) {
         Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(PvotSpacing.L)) {
@@ -299,7 +305,12 @@ private fun Onboarding(state: AppState, vm: AppViewModel) {
 @Composable
 fun LockScreen(onUnlock: () -> Unit) {
     LaunchedEffect(Unit) { onUnlock() }
-    Box(Modifier.fillMaxSize().padding(PvotSpacing.L), contentAlignment = Alignment.Center) {
+    Box(
+        Modifier.fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
+            .padding(PvotSpacing.L),
+        contentAlignment = Alignment.Center,
+    ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(PvotSpacing.L),

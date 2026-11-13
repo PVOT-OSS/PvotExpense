@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -35,7 +36,6 @@ import com.prauga.pvot.designsystem.components.progress.PvotProportionBarColors
 import com.prauga.pvot.designsystem.theme.PvotShapes
 import com.prauga.pvot.designsystem.theme.PvotSpacing
 import java.time.format.DateTimeFormatter
-import java.util.Locale
 import org.prauga.expense.R
 import org.prauga.expense.core.ledger.Period
 import org.prauga.expense.core.ledger.categoryInsights
@@ -87,7 +87,7 @@ fun LazyListScope.insightsContent(
                 stringResource(R.string.back),
                 onClick = { onChange(insights.copy(back = insights.back + 1)) },
             )
-            val f = DateTimeFormatter.ofPattern("d MMM", Locale.getDefault())
+            val f = DateTimeFormatter.ofPattern("d MMM", LocalConfiguration.current.locales[0])
             Text(
                 if (insights.back == 0) stringResource(R.string.this_month)
                 else "${period.start.format(f)} – ${period.endExclusive.minusDays(1).format(f)}",
@@ -224,7 +224,7 @@ fun LazyListScope.insightsContent(
 @Composable
 private fun Trend(totals: List<Pair<Period, Long>>, state: AppState) {
     val max = totals.maxOf { it.second }.coerceAtLeast(1)
-    val f = DateTimeFormatter.ofPattern("MMM", Locale.getDefault())
+    val f = DateTimeFormatter.ofPattern("MMM", LocalConfiguration.current.locales[0])
     PvotCard(Modifier.fillMaxWidth()) {
         Row(
             Modifier.fillMaxWidth().height(160.dp).padding(PvotSpacing.L),

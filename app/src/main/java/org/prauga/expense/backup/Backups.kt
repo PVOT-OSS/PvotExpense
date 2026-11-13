@@ -126,12 +126,9 @@ class Backups(
                 resolver.openInputStream(uri.toUri())!!.use { it.readBytes().decodeToString() }
             val rows = Csv.parse(text)
             if (rows.isEmpty()) Message(R.string.import_nothing)
-            else
-                Message(
-                    R.string.imported,
-                    listOf(
-                        repository.import(rows, settings.now().baseCurrency, ZoneId.systemDefault())
-                    ),
-                )
+            else {
+                val n = repository.import(rows, settings.now().baseCurrency, ZoneId.systemDefault())
+                Message(R.plurals.imported, listOf(n), count = n)
+            }
         }
 }

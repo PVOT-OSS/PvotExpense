@@ -67,10 +67,12 @@ data class AppState(
         get() = data.converter(base)
 }
 
+/** A snackbar line; with [count] set, [text] is a plurals resource. */
 data class Message(
-    @StringRes val text: Int,
+    val text: Int,
     val args: List<Any> = emptyList(),
     val undo: (() -> Unit)? = null,
+    val count: Int? = null,
 )
 
 class AppViewModel(private val c: AppContainer) : ViewModel() {
@@ -268,7 +270,7 @@ class AppViewModel(private val c: AppContainer) : ViewModel() {
 
     fun importSms() = launch {
         val n = c.capture.importSmsHistory()
-        _messages.emit(Message(R.string.imported_sms, listOf(n)))
+        _messages.emit(Message(R.plurals.imported_sms, listOf(n), count = n))
     }
 
     fun setOnboarded(currency: String) = launch {

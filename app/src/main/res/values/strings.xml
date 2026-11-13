@@ -22,7 +22,6 @@
     <string name="undo">Undo</string>
     <string name="back">Back</string>
     <string name="settings">Settings</string>
-    <string name="search">Search</string>
     <string name="none">None</string>
     <string name="today">Today</string>
     <string name="yesterday">Yesterday</string>
@@ -55,7 +54,10 @@
 
     <!-- Home -->
     <string name="safe_to_spend">Safe to spend today</string>
-    <string name="safe_to_spend_detail">for each of the next %1$d days</string>
+    <plurals name="safe_to_spend_detail">
+        <item quantity="one">for today, the last day of the month</item>
+        <item quantity="other">for each of the next %1$d days</item>
+    </plurals>
     <string name="safe_bills">Bills before the month ends</string>
     <string name="safe_budget_left">Left in budgets</string>
     <string name="safe_spendable">In cash, bank and wallets</string>
@@ -129,7 +131,6 @@
     <string name="bills">Bills and recurring</string>
     <string name="add_schedule">Add recurring</string>
     <string name="edit_schedule">Recurring</string>
-    <string name="frequency">Repeats</string>
     <string name="weekly">Weekly</string>
     <string name="monthly">Monthly</string>
     <string name="yearly">Yearly</string>
@@ -138,7 +139,6 @@
     <string name="auto_confirm">Add automatically</string>
     <string name="auto_confirm_summary">Skip the inbox when it\'s due</string>
     <string name="empty_schedules">Rent, salary, subscriptions and EMIs: add them once and they post themselves.</string>
-    <string name="per_year">%1$s a year</string>
     <string name="subscriptions_cost">Recurring expenses cost you %1$s a year</string>
 
     <!-- Insights -->
@@ -210,7 +210,10 @@
     <string name="capture_messages_missing">Install Messages to use this</string>
     <string name="import_sms">Read past bank SMS</string>
     <string name="import_sms_summary">Fill the inbox from the last 90 days</string>
-    <string name="imported_sms">%1$d payments found</string>
+    <plurals name="imported_sms">
+        <item quantity="one">%1$d payment found</item>
+        <item quantity="other">%1$d payments found</item>
+    </plurals>
     <string name="notification_access_title">Allow notification access?</string>
     <string name="notification_access_message">Ledger reads notifications only from payment and bank apps (Google Pay, PhonePe, Paytm, BHIM, bank apps) to find payments. Nothing leaves your phone: Ledger has no internet access. You\'ll be taken to Android\'s settings to turn on Ledger.</string>
     <string name="open_settings">Open settings</string>
@@ -247,7 +250,10 @@
     <string name="export_csv">Export CSV</string>
     <string name="import_csv">Import CSV</string>
     <string name="import_csv_summary">From another app or a bank statement</string>
-    <string name="imported">%1$d transactions imported</string>
+    <plurals name="imported">
+        <item quantity="one">%1$d transaction imported</item>
+        <item quantity="other">%1$d transactions imported</item>
+    </plurals>
     <string name="import_nothing">No transactions found in that file</string>
     <string name="exported">Exported</string>
     <string name="about">About</string>
