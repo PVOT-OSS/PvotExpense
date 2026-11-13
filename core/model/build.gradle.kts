@@ -8,4 +8,7 @@ plugins {
 
 android { namespace = "org.prauga.expense.core.model" }
 
-dependencies { api(libs.kotlinx.serialization.json) }
+dependencies {
+    api(libs.kotlinx.serialization.json)
+    api(libs.room.common)
+}

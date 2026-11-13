@@ -3,6 +3,9 @@
 
 package org.prauga.expense.core.model
 
+import androidx.room.Entity
+import androidx.room.Index
+import androidx.room.PrimaryKey
 import java.util.UUID
 import kotlinx.serialization.Serializable
 
@@ -19,8 +22,9 @@ enum class AccountType(val liability: Boolean) {
 }
 
 @Serializable
+@Entity(tableName = "accounts")
 data class Account(
-    val id: String = newId(),
+    @PrimaryKey val id: String = newId(),
     val name: String,
     val type: AccountType,
     val currency: String,
@@ -45,8 +49,9 @@ enum class CategoryKind {
 }
 
 @Serializable
+@Entity(tableName = "categories")
 data class Category(
-    val id: String = newId(),
+    @PrimaryKey val id: String = newId(),
     val name: String,
     val kind: CategoryKind,
     val color: Int = 0,
@@ -84,8 +89,12 @@ enum class TxSource {
  * [accountId] and [toAmountMinor] (in the target's currency) into [toAccountId].
  */
 @Serializable
+@Entity(
+    tableName = "transactions",
+    indices = [Index("occurredAt"), Index("status"), Index("accountId"), Index("reference")],
+)
 data class Transaction(
-    val id: String = newId(),
+    @PrimaryKey val id: String = newId(),
     val type: TxType,
     val status: TxStatus = TxStatus.CONFIRMED,
     val source: TxSource = TxSource.MANUAL,
@@ -110,8 +119,9 @@ data class Transaction(
 }
 
 @Serializable
+@Entity(tableName = "budgets")
 data class Budget(
-    val id: String = newId(),
+    @PrimaryKey val id: String = newId(),
     val categoryId: String,
     val limitMinor: Long,
     val rollover: Boolean = false,
@@ -128,8 +138,9 @@ enum class Frequency {
 
 /** A repeating transaction; [nextDue] is an epoch day. */
 @Serializable
+@Entity(tableName = "schedules")
 data class Schedule(
-    val id: String = newId(),
+    @PrimaryKey val id: String = newId(),
     val type: TxType,
     val accountId: String,
     val amountMinor: Long,
@@ -150,8 +161,9 @@ data class Schedule(
 
 /** Learned from the user's choices: text matching [pattern] goes to [categoryId]. */
 @Serializable
+@Entity(tableName = "rules", indices = [Index("pattern")])
 data class Rule(
-    val id: String = newId(),
+    @PrimaryKey val id: String = newId(),
     val pattern: String,
     val categoryId: String? = null,
     val accountId: String? = null,
@@ -162,8 +174,9 @@ data class Rule(
 
 /** A balance the bank reported, to reconcile against. */
 @Serializable
+@Entity(tableName = "checkpoints", indices = [Index("accountId")])
 data class Checkpoint(
-    val id: String = newId(),
+    @PrimaryKey val id: String = newId(),
     val accountId: String,
     val at: Long,
     val balanceMinor: Long,
@@ -173,4 +186,6 @@ data class Checkpoint(
 )
 
 /** 1 unit of [currency] is worth [perBase] units of the base currency. */
-@Serializable data class Rate(val currency: String, val perBase: String, val updatedAt: Long = 0)
+@Serializable
+@Entity(tableName = "rates")
+data class Rate(@PrimaryKey val currency: String, val perBase: String, val updatedAt: Long = 0)
