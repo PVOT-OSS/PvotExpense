@@ -120,7 +120,16 @@ fun safeToSpend(
     val spent = spendByCategory(transactions.within(period, zone), fx).values.sum()
     val elapsed = (period.days - daysLeft + 1).coerceAtLeast(1)
     val forecast = roundToUnit(spent * period.days / elapsed, accounts.firstOrNull()?.currency)
-    return SafeToSpend(pool / daysLeft, spendable, bills, budgetLeft, daysLeft, spent, forecast)
+    val unit = unitOf(accounts.firstOrNull()?.currency)
+    return SafeToSpend(
+        pool / daysLeft / unit * unit,
+        spendable,
+        bills,
+        budgetLeft,
+        daysLeft,
+        spent,
+        forecast,
+    )
 }
 
 /** Assets minus liabilities, in base minor units. */
@@ -136,3 +145,6 @@ private fun roundToUnit(minor: Long, currency: String?): Long {
         Money.exponentOf(currency ?: "INR").let { e -> (1..e).fold(1L) { acc, _ -> acc * 10 } }
     return (minor + unit / 2) / unit * unit
 }
+
+private fun unitOf(currency: String?): Long =
+    (1..Money.exponentOf(currency ?: "INR")).fold(1L) { acc, _ -> acc * 10 }
