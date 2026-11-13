@@ -20,7 +20,10 @@ android {
         includeInBundle = false
     }
 
-    buildTypes { release { optimization { enable = true } } }
+    buildTypes {
+        debug { applicationIdSuffix = ".dev" }
+        release { optimization { enable = true } }
+    }
 }
 
 dependencies {
