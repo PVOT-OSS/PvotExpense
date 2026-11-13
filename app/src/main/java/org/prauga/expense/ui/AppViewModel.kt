@@ -175,6 +175,7 @@ class AppViewModel(private val c: AppContainer) : ViewModel() {
                 accountId = account.id,
                 amountMinor = abs(diff),
                 currency = account.currency,
+                source = TxSource.ADJUSTMENT,
                 payee = label,
             )
         )

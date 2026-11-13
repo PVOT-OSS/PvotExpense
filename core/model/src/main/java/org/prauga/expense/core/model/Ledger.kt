@@ -82,6 +82,9 @@ enum class TxSource {
     SHARE,
     RECURRING,
     IMPORT,
+
+    /** Brings a balance in line with the bank; never counts as income or spending. */
+    ADJUSTMENT,
 }
 
 /**

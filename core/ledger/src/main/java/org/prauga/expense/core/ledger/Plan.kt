@@ -7,8 +7,10 @@ import java.time.LocalDate
 import java.time.ZoneId
 import org.prauga.expense.core.model.Account
 import org.prauga.expense.core.model.Budget
+import org.prauga.expense.core.model.Money
 import org.prauga.expense.core.model.Schedule
 import org.prauga.expense.core.model.Transaction
+import org.prauga.expense.core.model.TxSource
 import org.prauga.expense.core.model.TxStatus
 import org.prauga.expense.core.model.TxType
 
@@ -18,7 +20,10 @@ fun interface Converter {
 }
 
 fun List<Transaction>.confirmedExpenses(): List<Transaction> = filter {
-    !it.deleted && it.status == TxStatus.CONFIRMED && it.type == TxType.EXPENSE
+    !it.deleted &&
+        it.status == TxStatus.CONFIRMED &&
+        it.type == TxType.EXPENSE &&
+        it.source != TxSource.ADJUSTMENT
 }
 
 fun List<Transaction>.within(period: Period, zone: ZoneId): List<Transaction> {
@@ -114,7 +119,7 @@ fun safeToSpend(
     val pool = budgetLeft?.let { minOf(it, free) } ?: free
     val spent = spendByCategory(transactions.within(period, zone), fx).values.sum()
     val elapsed = (period.days - daysLeft + 1).coerceAtLeast(1)
-    val forecast = spent * period.days / elapsed
+    val forecast = roundToUnit(spent * period.days / elapsed, accounts.firstOrNull()?.currency)
     return SafeToSpend(pool / daysLeft, spendable, bills, budgetLeft, daysLeft, spent, forecast)
 }
 
@@ -123,4 +128,11 @@ fun netWorth(accounts: List<Account>, transactions: List<Transaction>, fx: Conve
     val live = accounts.filter { !it.deleted }
     val balance = balances(live, transactions)
     return live.sumOf { fx.toBase(balance[it.id] ?: 0, it.currency) }
+}
+
+/** A projection to the whole unit (₹576.92 → ₹577): paise would claim precision it doesn't have. */
+private fun roundToUnit(minor: Long, currency: String?): Long {
+    val unit =
+        Money.exponentOf(currency ?: "INR").let { e -> (1..e).fold(1L) { acc, _ -> acc * 10 } }
+    return (minor + unit / 2) / unit * unit
 }

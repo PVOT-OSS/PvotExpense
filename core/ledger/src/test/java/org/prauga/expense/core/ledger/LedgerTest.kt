@@ -16,6 +16,7 @@ import org.prauga.expense.core.model.Budget
 import org.prauga.expense.core.model.Frequency
 import org.prauga.expense.core.model.Schedule
 import org.prauga.expense.core.model.Transaction
+import org.prauga.expense.core.model.TxSource
 import org.prauga.expense.core.model.TxStatus
 import org.prauga.expense.core.model.TxType
 
@@ -178,6 +179,13 @@ class LedgerTest {
         assertFalse(sameMoneyMovement(sms, app.copy(amountMinor = 251_00)))
         assertFalse(sameMoneyMovement(sms, app.copy(accountHint = "9999")))
         assertFalse(sameMoneyMovement(sms, app.copy(occurredAt = sms.occurredAt + 3_600_000)))
+    }
+
+    @Test
+    fun adjustmentsAreNotSpending() {
+        val adj = expense(1_000_00, "2026-11-05").copy(source = TxSource.ADJUSTMENT)
+        assertEquals(emptyMap<String?, Long>(), spendByCategory(listOf(adj), fx))
+        assertEquals(99_000_00L, balances(listOf(bank), listOf(adj))["bank"])
     }
 
     @Test
