@@ -161,10 +161,15 @@ fun TxRow(
 }
 
 @Composable
-fun Caption(text: String, modifier: Modifier = Modifier) {
+fun Caption(text: String, modifier: Modifier = Modifier) =
+    CardCaption(text, modifier.padding(horizontal = 4.dp))
+
+/** A caption inside a card, aligned with the card's other text. */
+@Composable
+fun CardCaption(text: String, modifier: Modifier = Modifier) {
     Text(
         text,
-        modifier = modifier.padding(horizontal = 4.dp),
+        modifier = modifier,
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurfaceVariant,
     )

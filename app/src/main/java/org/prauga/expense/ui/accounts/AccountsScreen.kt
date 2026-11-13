@@ -42,7 +42,7 @@ import org.prauga.expense.ui.AppState
 import org.prauga.expense.ui.AppViewModel
 import org.prauga.expense.ui.Formats
 import org.prauga.expense.ui.Nav
-import org.prauga.expense.ui.components.Caption
+import org.prauga.expense.ui.components.CardCaption
 import org.prauga.expense.ui.components.Heading
 import org.prauga.expense.ui.components.IconTile
 import org.prauga.expense.ui.components.SubScreen
@@ -151,7 +151,7 @@ fun AccountScreen(id: String, state: AppState, vm: AppViewModel, nav: Nav) {
                     )
                     when (account.type) {
                         AccountType.PERSON ->
-                            Caption(
+                            CardCaption(
                                 when {
                                     balance > 0 ->
                                         stringResource(
@@ -169,10 +169,10 @@ fun AccountScreen(id: String, state: AppState, vm: AppViewModel, nav: Nav) {
                             )
                         AccountType.CARD -> {
                             account.dueDay?.let {
-                                Caption(stringResource(R.string.card_due, it), Modifier)
+                                CardCaption(stringResource(R.string.card_due, it), Modifier)
                             }
                             account.limitMinor?.let {
-                                Caption(
+                                CardCaption(
                                     stringResource(
                                         R.string.available_credit,
                                         money(it + balance, account.currency),

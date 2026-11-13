@@ -221,7 +221,7 @@
     <string name="lock">App lock</string>
     <string name="lock_summary">Fingerprint, face or screen lock to open Ledger</string>
     <string name="hide_amounts">Hide amounts</string>
-    <string name="hide_amounts_summary">Show ••• until you tap an amount</string>
+    <string name="hide_amounts_summary">Show ••• instead of amounts, also in the widget</string>
     <string name="secure_screen">Block screenshots</string>
     <string name="secure_screen_summary">Also hides Ledger in recent apps</string>
     <string name="encrypted">Encrypted on this phone</string>

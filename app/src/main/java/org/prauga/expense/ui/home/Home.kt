@@ -35,6 +35,7 @@ import org.prauga.expense.ui.AppViewModel
 import org.prauga.expense.ui.Formats
 import org.prauga.expense.ui.Nav
 import org.prauga.expense.ui.components.Caption
+import org.prauga.expense.ui.components.CardCaption
 import org.prauga.expense.ui.components.Heading
 import org.prauga.expense.ui.components.IconTile
 import org.prauga.expense.ui.components.TxRow
@@ -213,7 +214,7 @@ private fun SafeCard(state: AppState) {
                 Stat(stringResource(R.string.safe_budget_left), money(it, state.base))
             }
             if (safe.spentMinor > 0)
-                Caption(
+                CardCaption(
                     stringResource(R.string.forecast, money(safe.forecastMinor, state.base)),
                     Modifier.padding(top = PvotSpacing.XS),
                 )

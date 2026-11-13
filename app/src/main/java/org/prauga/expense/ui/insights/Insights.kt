@@ -46,6 +46,7 @@ import org.prauga.expense.core.model.TxStatus
 import org.prauga.expense.core.model.TxType
 import org.prauga.expense.ui.AppState
 import org.prauga.expense.ui.components.Caption
+import org.prauga.expense.ui.components.CardCaption
 import org.prauga.expense.ui.components.Heading
 import org.prauga.expense.ui.money
 
@@ -109,7 +110,7 @@ fun LazyListScope.insightsContent(
                 verticalArrangement = Arrangement.spacedBy(PvotSpacing.S),
             ) {
                 Text(money(spent, state.base), style = MaterialTheme.typography.displaySmall)
-                Caption(
+                CardCaption(
                     stringResource(
                         R.string.income_vs_spend,
                         money(income, state.base),
@@ -260,7 +261,7 @@ private fun Trend(totals: List<Pair<Period, Long>>, state: AppState) {
                 }
             }
         }
-        Caption(
+        CardCaption(
             money(totals.last().second, state.base),
             Modifier.padding(start = PvotSpacing.L, bottom = PvotSpacing.L),
         )
