@@ -20,6 +20,12 @@ android {
         includeInBundle = false
     }
 
+    flavorDimensions += "store"
+    productFlavors {
+        create("fdroid") { dimension = "store" }
+        create("play") { dimension = "store" }
+    }
+
     buildTypes {
         debug { applicationIdSuffix = ".dev" }
         release { optimization { enable = true } }
