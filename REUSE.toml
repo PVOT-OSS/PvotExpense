@@ -6,7 +6,7 @@ SPDX-PackageName = "Ledger"
 SPDX-PackageSupplier = "Saalim Quadri <danascape@gmail.com>"
 
 [[annotations]]
-path = ["app/src/main/res/mipmap-*/*.webp", "core/*/schemas/**", "gradle/gradle-daemon-jvm.properties"]
+path = ["core/*/schemas/**", "gradle/gradle-daemon-jvm.properties"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2026 Saalim Quadri <danascape@gmail.com>"
 SPDX-License-Identifier = "Apache-2.0"

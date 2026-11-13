@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Saalim Quadri <danascape@gmail.com>
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- The launcher icon's own tile, so the app opens looking as it does on the home screen. -->
+    <color name="splash_background">#FF0A0A0B</color>
+    <color name="splash_icon_background">#FF0A0A0B</color>
+</resources>
