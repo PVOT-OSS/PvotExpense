@@ -72,5 +72,7 @@ class QuickAddParserTest {
         assertEquals(2, Rules.learn("swiggy", "food", null, listOf(rule), 2)!!.hits)
         assertEquals("Swiggy Instamart", Payees.display("SWIGGY INSTAMART"))
         assertEquals("McDonald's", Payees.display("McDonald's"))
+        assertEquals("Swiggy Instamart", Payees.display("swiggy.instamart"))
+        assertEquals("St. John's Bakery", Payees.display("St. John's Bakery"))
     }
 }

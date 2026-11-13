@@ -28,7 +28,11 @@ object Payees {
 
     /** "SWIGGY" → "Swiggy", "uber" → "Uber"; mixed case is left as the merchant wrote it. */
     fun display(text: String): String {
-        val t = text.replace(Regex("""\s+"""), " ").trim()
+        val spaced =
+            if (' ' !in text.trim() && text.any { it == '.' || it == '_' })
+                text.replace(Regex("""[._]+"""), " ")
+            else text
+        val t = spaced.replace(Regex("""\s+"""), " ").trim()
         val shouting = t.none { it.isLowerCase() } || t.none { it.isUpperCase() }
         return if (!shouting) t
         else
