@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Saalim Quadri <danascape@gmail.com>
+     SPDX-License-Identifier: Apache-2.0
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="org.prauga.messages.permission.READ_TRANSACTION_SMS" />
+
+    <queries>
+        <provider android:authorities="org.prauga.messages.transactions" />
+    </queries>
+
+</manifest>
