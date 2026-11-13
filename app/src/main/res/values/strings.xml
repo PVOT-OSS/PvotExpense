@@ -1,7 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
      SPDX-FileCopyrightText: 2026 Saalim Quadri <danascape@gmail.com>
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <string name="app_name">Ledger</string>
+
+    <!-- Tabs -->
+    <string name="tab_home">Home</string>
+    <string name="tab_activity">Activity</string>
+    <string name="tab_plan">Plan</string>
+    <string name="tab_insights">Insights</string>
+
+    <!-- Common -->
+    <string name="add">Add</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="done">Done</string>
+    <string name="edit">Edit</string>
+    <string name="undo">Undo</string>
+    <string name="back">Back</string>
+    <string name="settings">Settings</string>
+    <string name="search">Search</string>
+    <string name="none">None</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="see_all">See all</string>
+    <string name="deleted">Deleted</string>
+    <string name="hidden_amount">•••</string>
+
+    <!-- Seed -->
+    <string name="seed_cash">Cash</string>
+    <string-array name="seed_expense">
+        <item>Food</item>
+        <item>Groceries</item>
+        <item>Transport</item>
+        <item>Shopping</item>
+        <item>Bills</item>
+        <item>Rent</item>
+        <item>Health</item>
+        <item>Entertainment</item>
+        <item>Travel</item>
+        <item>Education</item>
+        <item>Subscriptions</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="seed_income">
+        <item>Salary</item>
+        <item>Refunds</item>
+        <item>Interest</item>
+        <item>Other</item>
+    </string-array>
+
+    <!-- Home -->
+    <string name="safe_to_spend">Safe to spend today</string>
+    <string name="safe_to_spend_detail">for each of the next %1$d days</string>
+    <string name="safe_bills">Bills before the month ends</string>
+    <string name="safe_budget_left">Left in budgets</string>
+    <string name="safe_spendable">In cash, bank and wallets</string>
+    <string name="spent_this_month">Spent this month</string>
+    <string name="forecast">At this pace: %1$s by month end</string>
+    <string name="inbox">Inbox</string>
+    <string name="inbox_count">%1$d to review</string>
+    <string name="inbox_review">Review</string>
+    <string name="confirm">Confirm</string>
+    <string name="confirm_all">Confirm all</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="due_on">Due %1$s</string>
+    <string name="accounts">Accounts</string>
+    <string name="net_worth">Net worth</string>
+    <string name="recent">Recent</string>
+    <string name="empty_home">Nothing logged yet. Add your first expense, or let Ledger read payment notifications in Settings.</string>
+    <string name="missing_rates">Set an exchange rate for %1$s so totals add up.</string>
+
+    <!-- Quick add -->
+    <string name="quick_add">Quick add</string>
+    <string name="quick_add_hint">250 lunch #food @hdfc yesterday</string>
+    <string name="quick_add_help">Amount, then what it was for. #category, @account, a date like \"yesterday\" or \"3 nov\". Start with + for income, use @from > @to for a transfer.</string>
+    <string name="quick_add_more">More details</string>
+    <string name="quick_add_no_amount">Start with an amount</string>
+    <string name="added">Added %1$s</string>
+
+    <!-- Transaction -->
+    <string name="new_transaction">New transaction</string>
+    <string name="edit_transaction">Edit transaction</string>
+    <string name="review_transaction">Review</string>
+    <string name="expense">Expense</string>
+    <string name="income">Income</string>
+    <string name="transfer">Transfer</string>
+    <string name="amount">Amount</string>
+    <string name="amount_received">Amount received</string>
+    <string name="account">Account</string>
+    <string name="from_account">From</string>
+    <string name="to_account">To</string>
+    <string name="category">Category</string>
+    <string name="payee">Payee</string>
+    <string name="note">Note</string>
+    <string name="date">Date</string>
+    <string name="save_confirm">Save and confirm</string>
+    <string name="captured_from">Read from: %1$s</string>
+    <string name="no_category">Uncategorised</string>
+    <string name="amount_invalid">Enter an amount</string>
+    <string name="transfer_same">Pick two different accounts</string>
+    <string name="source_sms">SMS</string>
+    <string name="source_notification">notification</string>
+    <string name="source_share">shared text</string>
+    <string name="source_recurring">schedule</string>
+
+    <!-- Activity -->
+    <string name="search_hint">Search payee, note, category</string>
+    <string name="filter_all">All</string>
+    <string name="empty_activity">No transactions</string>
+    <string name="empty_inbox">All caught up</string>
+    <string name="inbox_explained">Payments read from notifications and SMS land here. Swipe right to confirm, left to dismiss. Ledger learns your categories as you go.</string>
+
+    <!-- Plan -->
+    <string name="budgets">Budgets</string>
+    <string name="add_budget">Add budget</string>
+    <string name="edit_budget">Budget</string>
+    <string name="budget_limit">Monthly limit</string>
+    <string name="rollover">Roll over what\'s left</string>
+    <string name="rollover_summary">Unspent money (or overspending) carries into next month</string>
+    <string name="budget_left">%1$s left of %2$s</string>
+    <string name="budget_over">%1$s over %2$s</string>
+    <string name="empty_budgets">No budgets yet. A limit for the categories you want to keep an eye on is enough.</string>
+    <string name="bills">Bills and recurring</string>
+    <string name="add_schedule">Add recurring</string>
+    <string name="edit_schedule">Recurring</string>
+    <string name="frequency">Repeats</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+    <string name="yearly">Yearly</string>
+    <string name="next_due">Next due</string>
+    <string name="remind_days">Remind me days before</string>
+    <string name="auto_confirm">Add automatically</string>
+    <string name="auto_confirm_summary">Skip the inbox when it\'s due</string>
+    <string name="empty_schedules">Rent, salary, subscriptions and EMIs: add them once and they post themselves.</string>
+    <string name="per_year">%1$s a year</string>
+    <string name="subscriptions_cost">Recurring expenses cost you %1$s a year</string>
+
+    <!-- Insights -->
+    <string name="this_month">This month</string>
+    <string name="by_category">By category</string>
+    <string name="vs_average">usual %1$s</string>
+    <string name="unusual">%1$s is well above your usual</string>
+    <string name="top_payees">Top payees</string>
+    <string name="trend">Last 6 months</string>
+    <string name="income_vs_spend">Income %1$s · spent %2$s</string>
+    <string name="empty_insights">Insights appear once there\'s some spending to look at.</string>
+
+    <!-- Accounts -->
+    <string name="add_account">Add account</string>
+    <string name="edit_account">Account</string>
+    <string name="account_name">Name</string>
+    <string name="account_type">Type</string>
+    <string name="type_cash">Cash</string>
+    <string name="type_bank">Bank</string>
+    <string name="type_wallet">Wallet</string>
+    <string name="type_card">Credit card</string>
+    <string name="type_loan">Loan</string>
+    <string name="type_person">Person (IOU)</string>
+    <string name="currency">Currency</string>
+    <string name="opening_balance">Opening balance</string>
+    <string name="last4">Last 4 digits</string>
+    <string name="last4_summary">Matches bank SMS to this account</string>
+    <string name="statement_day">Statement day</string>
+    <string name="due_day">Payment due day</string>
+    <string name="credit_limit">Credit limit</string>
+    <string name="archived">Archived</string>
+    <string name="balance">Balance</string>
+    <string name="reconcile">Reconcile</string>
+    <string name="bank_says">The bank says</string>
+    <string name="reconcile_summary">Enter the balance your bank or card shows now.</string>
+    <string name="matches">Matches the bank</string>
+    <string name="drift">%1$s off from the bank</string>
+    <string name="last_checkpoint">Bank balance %1$s on %2$s</string>
+    <string name="adjust">Add an adjustment</string>
+    <string name="adjustment">Balance adjustment</string>
+    <string name="owes_you">Owes you %1$s</string>
+    <string name="you_owe">You owe %1$s</string>
+    <string name="settled">Settled</string>
+    <string name="card_due">Bill due on the %1$s</string>
+    <string name="available_credit">%1$s available</string>
+    <string name="delete_account_title">Delete this account?</string>
+    <string name="delete_account_message">Its transactions stay in history but no longer count toward balances.</string>
+
+    <!-- Categories -->
+    <string name="categories">Categories</string>
+    <string name="add_category">Add category</string>
+    <string name="category_name">Name</string>
+
+    <!-- Settings -->
+    <string name="general">General</string>
+    <string name="base_currency">Main currency</string>
+    <string name="month_start">Month starts on</string>
+    <string name="month_start_value">Day %1$d</string>
+    <string name="exchange_rates">Exchange rates</string>
+    <string name="rate_hint">1 %1$s = ? %2$s</string>
+    <string name="add_rate">Add rate</string>
+    <string name="capture">Capture</string>
+    <string name="capture_notifications">Payment notifications</string>
+    <string name="capture_notifications_summary">Read payments from UPI and bank apps\' notifications</string>
+    <string name="capture_sms">Bank SMS</string>
+    <string name="capture_sms_summary">Read debit and credit SMS from banks. Messages from people are never read.</string>
+    <string name="capture_messages">Bank SMS from Messages</string>
+    <string name="capture_messages_summary">Get bank SMS from the Messages app, so Ledger never reads your SMS itself</string>
+    <string name="capture_messages_missing">Install Messages to use this</string>
+    <string name="import_sms">Read past bank SMS</string>
+    <string name="import_sms_summary">Fill the inbox from the last 90 days</string>
+    <string name="imported_sms">%1$d payments found</string>
+    <string name="notification_access_title">Allow notification access?</string>
+    <string name="notification_access_message">Ledger reads notifications only from payment and bank apps (Google Pay, PhonePe, Paytm, BHIM, bank apps) to find payments. Nothing leaves your phone: Ledger has no internet access. You\'ll be taken to Android\'s settings to turn on Ledger.</string>
+    <string name="open_settings">Open settings</string>
+    <string name="privacy">Privacy and security</string>
+    <string name="lock">App lock</string>
+    <string name="lock_summary">Fingerprint, face or screen lock to open Ledger</string>
+    <string name="hide_amounts">Hide amounts</string>
+    <string name="hide_amounts_summary">Show ••• until you tap an amount</string>
+    <string name="secure_screen">Block screenshots</string>
+    <string name="secure_screen_summary">Also hides Ledger in recent apps</string>
+    <string name="encrypted">Encrypted on this phone</string>
+    <string name="encrypted_summary">Your data is always encrypted, and Ledger has no internet access</string>
+    <string name="backup">Backup</string>
+    <string name="backup_folder">Backup folder</string>
+    <string name="backup_folder_none">Not set: your data can\'t be recovered if this phone is lost or reset</string>
+    <string name="backup_passphrase">Backup passphrase</string>
+    <string name="backup_passphrase_summary">Needed to restore. Keep it somewhere safe.</string>
+    <string name="backup_passphrase_set">Set</string>
+    <string name="backup_now">Back up now</string>
+    <string name="backup_last">Last backup %1$s</string>
+    <string name="backup_never">Never backed up</string>
+    <string name="backup_done">Backed up</string>
+    <string name="backup_failed">Backup failed: %1$s</string>
+    <string name="backup_needs_setup">Choose a backup folder and passphrase first</string>
+    <string name="restore">Restore from backup</string>
+    <string name="restore_title">Replace everything with this backup?</string>
+    <string name="restore_message">Everything in Ledger now is replaced by the backup\'s contents.</string>
+    <string name="restore_done">Restored</string>
+    <string name="restore_wrong_passphrase">That passphrase doesn\'t open this backup</string>
+    <string name="restore_failed">Couldn\'t restore: %1$s</string>
+    <string name="passphrase">Passphrase</string>
+    <string name="passphrase_short">Use at least 8 characters</string>
+    <string name="data">Data</string>
+    <string name="export_csv">Export CSV</string>
+    <string name="import_csv">Import CSV</string>
+    <string name="import_csv_summary">From another app or a bank statement</string>
+    <string name="imported">%1$d transactions imported</string>
+    <string name="import_nothing">No transactions found in that file</string>
+    <string name="exported">Exported</string>
+    <string name="about">About</string>
+    <string name="about_text">Ledger keeps track of where your money goes, with as little typing as possible. Free and open source under the Apache License 2.0, with no ads, no account and no internet access.</string>
+    <string name="version">Version %1$s</string>
+    <string name="licences">Icons: Tabler Icons (MIT). Database: SQLCipher (BSD).</string>
+
+    <!-- Lock -->
+    <string name="locked">Ledger is locked</string>
+    <string name="unlock">Unlock</string>
+    <string name="unlock_title">Unlock Ledger</string>
+
+    <!-- Onboarding -->
+    <string name="welcome">Welcome to Ledger</string>
+    <string name="welcome_text">Track spending without typing it all. Pick your main currency; you can add accounts and capture later.</string>
+    <string name="get_started">Get started</string>
+
+    <!-- Notifications -->
+    <string name="channel_bills">Bills</string>
+    <string name="channel_inbox">New payments</string>
+    <string name="bill_due">%1$s due %2$s</string>
+    <string name="inbox_notification">%1$s %2$s</string>
+    <string name="inbox_notification_text">Tap to review</string>
+
+    <!-- Tile and widget -->
+    <string name="tile_label">Add expense</string>
+    <string name="widget_label">Safe to spend</string>
+    <string name="widget_per_day">per day</string>
+    <string name="shortcut_add">Add expense</string>
 </resources>

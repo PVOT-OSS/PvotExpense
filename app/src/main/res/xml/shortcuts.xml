@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Saalim Quadri <danascape@gmail.com>
+     SPDX-License-Identifier: Apache-2.0
+-->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_add"
+        android:shortcutId="quick_add"
+        android:shortcutShortLabel="@string/shortcut_add">
+        <intent
+            android:action="org.prauga.expense.QUICK_ADD"
+            android:targetClass="org.prauga.expense.MainActivity"
+            android:targetPackage="org.prauga.expense" />
+    </shortcut>
+</shortcuts>
