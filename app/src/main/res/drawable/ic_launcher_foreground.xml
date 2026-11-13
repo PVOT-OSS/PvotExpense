@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     SPDX-FileCopyrightText: 2026 Vishnu R <vishnurajesh45@gmail.com>
+     SPDX-FileCopyrightText: 2026 Saalim Quadri <danascape@gmail.com>
      SPDX-License-Identifier: Apache-2.0
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
@@ -8,10 +8,22 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <path
-        android:fillColor="#FF5B4BF5"
-        android:pathData="M50.27,34.95A19.41,19.41 0,0 0,50.27,73.05Z" />
-    <path
-        android:fillColor="#FFFAFAFA"
-        android:pathData="M54.63,34.60A19.41,19.41 0,0 1,54.63,73.40Z" />
+    <group
+        android:scaleX="0.83333"
+        android:scaleY="0.83333"
+        android:translateX="52.3333"
+        android:translateY="55.4479">
+        <path
+            android:fillColor="#FF6CCFC3"
+            android:pathData="M-13.076,-19.386L8.71,-22.448A4,4 0 0,1 13.228,-19.044L14.48,-10.131A4,4 0 0,1 11.076,-5.614L-10.71,-2.552A4,4 0 0,1 -15.228,-5.956L-16.48,-14.869A4,4 0 0,1 -13.076,-19.386Z" />
+        <path
+            android:fillColor="#FF0EA594"
+            android:pathData="M-14,-11L14,-11A8,8 0 0,1 22,-3L22,11A8,8 0 0,1 14,19L-14,19A8,8 0 0,1 -22,11L-22,-3A8,8 0 0,1 -14,-11Z" />
+        <path
+            android:fillColor="#FFDAF5F1"
+            android:pathData="M13,-2L19,-2A7,7 0 0,1 26,5A7,7 0 0,1 19,12L13,12A7,7 0 0,1 6,5A7,7 0 0,1 13,-2Z" />
+        <path
+            android:fillColor="#FF0EA594"
+            android:pathData="M11.2,5a2.8,2.8 0 1,0 5.6,0a2.8,2.8 0 1,0 -5.6,0Z" />
+    </group>
 </vector>
