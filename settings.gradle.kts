@@ -33,4 +33,6 @@ rootProject.name = "Ledger"
 
 include(":app")
 
+include(":core:model")
+
 providers.gradleProperty("pvotLibDir").orNull?.let { includeBuild(it) }
