@@ -35,4 +35,6 @@ include(":app")
 
 include(":core:model")
 
+include(":core:ledger")
+
 providers.gradleProperty("pvotLibDir").orNull?.let { includeBuild(it) }
