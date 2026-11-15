@@ -7,6 +7,7 @@ import java.time.LocalDate
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test
+import org.prauga.expense.core.model.Transaction
 import org.prauga.expense.core.model.TxType
 
 class QuickAddParserTest {
@@ -61,6 +62,35 @@ class QuickAddParserTest {
     }
 
     @Test fun noAmount() = assertNull(parse("coffee").amountMinor)
+
+    @Test
+    fun rulesLearnFromImportedHistory() {
+        fun tx(payee: String, category: String?, at: Long, type: TxType = TxType.EXPENSE) =
+            Transaction(
+                type = type,
+                occurredAt = at,
+                accountId = "a",
+                amountMinor = 1,
+                currency = "INR",
+                categoryId = category,
+                payee = payee,
+            )
+        val learned =
+            Rules.learnAll(
+                listOf(
+                    tx("Swiggy", "food", 2),
+                    tx("SWIGGY", "treats", 1),
+                    tx("Uber", "transport", 3),
+                    tx("Rent", null, 4),
+                    tx("ATM", "x", 5, TxType.TRANSFER),
+                ),
+                emptyList(),
+                9,
+            )
+        assertEquals(setOf("swiggy", "uber"), learned.map { it.pattern }.toSet())
+        assertEquals("food", learned.first { it.pattern == "swiggy" }.categoryId)
+        assertEquals(2, learned.first { it.pattern == "swiggy" }.hits)
+    }
 
     @Test
     fun rulesLearnAndMatchMerchants() {

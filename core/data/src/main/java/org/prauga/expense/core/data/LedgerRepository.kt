@@ -349,6 +349,7 @@ class LedgerRepository(
                 )
             }
         dao.upsertTransactions(*txs.toTypedArray())
+        dao.upsertRules(*Rules.learnAll(txs, dao.rulesNow(), clock()).toTypedArray())
         return txs.size
     }
 

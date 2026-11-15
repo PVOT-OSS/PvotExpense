@@ -4,6 +4,8 @@
 package org.prauga.expense.core.capture
 
 import org.prauga.expense.core.model.Rule
+import org.prauga.expense.core.model.Transaction
+import org.prauga.expense.core.model.TxType
 
 object Rules {
     /** The best rule for [payee]: an exact key match, else the longest pattern contained in it. */
@@ -34,5 +36,19 @@ object Rules {
             hits = existing.hits + 1,
             updatedAt = now,
         ) ?: Rule(pattern = key, categoryId = categoryId, accountId = accountId, updatedAt = now)
+    }
+
+    /** The most recent choice per payee wins. */
+    fun learnAll(transactions: List<Transaction>, rules: List<Rule>, now: Long): List<Rule> {
+        val byPattern = rules.filter { !it.deleted }.associateBy { it.pattern }.toMutableMap()
+        val changed = mutableSetOf<String>()
+        for (tx in transactions.filter { it.type != TxType.TRANSFER }.sortedBy { it.occurredAt }) {
+            val rule =
+                learn(tx.payee, tx.categoryId, tx.accountId, byPattern.values.toList(), now)
+                    ?: continue
+            byPattern[rule.pattern] = rule
+            changed += rule.pattern
+        }
+        return changed.mapNotNull { byPattern[it] }
     }
 }
