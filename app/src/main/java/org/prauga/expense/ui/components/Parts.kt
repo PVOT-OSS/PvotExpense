@@ -39,6 +39,7 @@ import org.prauga.expense.R
 import org.prauga.expense.core.data.LedgerData
 import org.prauga.expense.core.model.AccountType
 import org.prauga.expense.core.model.Transaction
+import org.prauga.expense.core.model.TxSource
 import org.prauga.expense.core.model.TxStatus
 import org.prauga.expense.core.model.TxType
 import org.prauga.expense.ui.Formats
@@ -137,7 +138,7 @@ fun TxRow(
                             Instant.ofEpochMilli(tx.occurredAt).atZone(zone).toLocalDate()
                         )
                     )
-                else add(Formats.time(tx.occurredAt, zone))
+                else if (tx.source != TxSource.IMPORT) add(Formats.time(tx.occurredAt, zone))
             }
             .joinToString(" · ")
     PvotListRow(
