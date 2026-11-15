@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: 2026 Saalim Quadri <danascape@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+PackageName: org.prauga.expense
+Name: Ledger
+Summary: Expenses that log themselves, from bank SMS and UPI notifications
+License: Apache-2.0
+AuthorName: Saalim Quadri
+SourceCode: https://github.com/PVOT-OSS/PvotExpense
+IssueTracker: https://github.com/PVOT-OSS/PvotExpense/issues
+WebSite: ""
+Categories:
+  - Money
+CurrentVersion: "1.0.0"
+CurrentVersionCode: 10000
+Description: |
+  Ledger keeps track of where your money goes with as little typing as
+  possible. It reads payments from bank SMS and UPI and bank app
+  notifications into an inbox you confirm with a swipe, learns your
+  categories, and tells you how much is safe to spend today. Budgets,
+  recurring bills, insights, accounts you can reconcile with your bank,
+  encrypted backups and CSV. No ads, no account and no internet permission:
+  everything stays on your phone, in an encrypted database.
+
+RepoType: git
+Repo: https://github.com/PVOT-OSS/PvotExpense.git
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 10000
+    commit: v1.0.0
+    subdir: app
+    srclibs:
+      - PvotLib@v1.0.0
+    prebuild:
+      - sed -i -e '/pvot-oss.github.io/,+2d' ../settings.gradle.kts
+      - echo "pvotLibDir=$$PvotLib$$" >> ../gradle.properties
+    gradle:
+      - fdroid
