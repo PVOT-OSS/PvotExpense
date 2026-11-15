@@ -7,13 +7,17 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 }
 
+val versionMajor = 1
+val versionMinor = 0
+val versionPatch = 0
+
 android {
     namespace = "org.prauga.expense"
 
     defaultConfig {
         applicationId = "org.prauga.expense"
-        versionCode = rootProject.extra["versionCode"] as Int
-        versionName = rootProject.extra["versionName"] as String
+        versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch
+        versionName = "$versionMajor.$versionMinor.$versionPatch"
     }
 
     dependenciesInfo {

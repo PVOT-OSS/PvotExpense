@@ -9,11 +9,3 @@ plugins {
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.room) apply false
 }
-
-extra.apply {
-    val versionMajor = 1
-    val versionMinor = 0
-    val versionPatch = 0
-    set("versionCode", versionMajor * 10000 + versionMinor * 100 + versionPatch)
-    set("versionName", "$versionMajor.$versionMinor.$versionPatch")
-}
