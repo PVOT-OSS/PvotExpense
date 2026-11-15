@@ -28,6 +28,12 @@ class MoneyTest {
         assertEquals(4L, Money.of(BigDecimal("0.035"), "USD").minor)
     }
 
+    @Test
+    fun roundsEstimatesToWholeUnits() {
+        assertEquals(333700L, Money(333666, "INR").rounded().minor)
+        assertEquals(1235L, Money(1235, "JPY").rounded().minor)
+    }
+
     @Test(expected = IllegalArgumentException::class)
     fun refusesToMixCurrencies() {
         Money(1, "INR") + Money(1, "USD")

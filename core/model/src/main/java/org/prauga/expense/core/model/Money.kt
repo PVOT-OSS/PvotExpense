@@ -19,6 +19,8 @@ data class Money(val minor: Long, val currency: String) : Comparable<Money> {
 
     operator fun unaryMinus(): Money = Money(-minor, currency)
 
+    fun rounded(): Money = of(decimal.setScale(0, RoundingMode.HALF_EVEN), currency)
+
     override fun compareTo(other: Money): Int = minor.compareTo(sameCurrency(other).minor)
 
     private fun sameCurrency(other: Money): Money {

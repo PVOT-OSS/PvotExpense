@@ -42,6 +42,7 @@ import org.prauga.expense.core.ledger.categoryInsights
 import org.prauga.expense.core.ledger.monthlyTotals
 import org.prauga.expense.core.ledger.topPayees
 import org.prauga.expense.core.ledger.within
+import org.prauga.expense.core.model.Money
 import org.prauga.expense.core.model.TxStatus
 import org.prauga.expense.core.model.TxType
 import org.prauga.expense.ui.AppState
@@ -170,7 +171,10 @@ fun LazyListScope.insightsContent(
                                 if (c.averageMinor > 0)
                                     stringResource(
                                         R.string.vs_average,
-                                        money(c.averageMinor, state.base),
+                                        money(
+                                            Money(c.averageMinor, state.base).rounded().minor,
+                                            state.base,
+                                        ),
                                     )
                                 else null,
                             leading = {
