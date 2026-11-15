@@ -1,0 +1,1 @@
+First release: payments read from notifications and bank SMS into an inbox, quick add, safe to spend, budgets, recurring bills, insights, accounts with reconcile, encrypted database and backups, CSV, widget and app lock.

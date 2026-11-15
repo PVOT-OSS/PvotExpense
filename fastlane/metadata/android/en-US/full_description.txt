@@ -1,0 +1,28 @@
+Ledger keeps track of where your money goes, with as little typing as possible, and keeps it all on your phone.
+
+<b>Payments that log themselves</b>
+• Reads payments from UPI and bank app notifications, and from bank SMS, and puts them in an inbox for you to confirm with a swipe.
+• The same payment seen twice, in an SMS and a notification, is recorded once.
+• Learns your categories: file a payee once and the next payment goes to the same place.
+• Quick add in one line: "250 lunch #food @hdfc yesterday", "+50k salary", "2000 @hdfc > @cash".
+• Share a payment confirmation from any app, or add from the home screen widget, a Quick Settings tile or the launcher shortcut.
+
+<b>Know what you can spend</b>
+• Safe to spend today: what's left in cash, bank and wallets after the bills due this month, capped by your budgets, spread over the days left.
+• Budgets per category, with leftovers rolled into next month if you like.
+• Rent, salary, subscriptions and EMIs: add them once, they post themselves and remind you before they're due.
+• Insights: spending by category against your usual, unusual months, six-month trend and top payees.
+
+<b>Numbers you can trust</b>
+• Accounts for cash, bank, wallets, credit cards, loans and money lent to friends, with net worth.
+• Reconcile with your bank: enter the balance it shows and see how far off you are, or add an adjustment.
+• Money is stored exactly, in paise or cents, never rounded floating point. Many currencies, with your own exchange rates, and lakh and crore grouping for rupees.
+
+<b>Private by design</b>
+• No account, no ads, no analytics and no internet permission: nothing you record leaves your phone.
+• Encrypted database, always on. App lock with fingerprint, face or screen lock. Hide amounts and block screenshots.
+• Encrypted backups to a folder you choose, restored with your passphrase. Export and import CSV, including bank statements.
+
+Reading SMS: the version on F-Droid reads bank SMS itself if you allow it. The version on Google Play never reads SMS; it can get bank messages from the PVOT Messages app instead.
+
+Ledger is free and open source under the Apache License 2.0.
